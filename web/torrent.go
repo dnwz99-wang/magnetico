@@ -11,8 +11,8 @@ import (
 
 func torrent() g.Node {
 	return c.HTML5(c.HTML5Props{
-		Title:       "Loading ... - magnetico",
-		Description: "A self-hosted BitTorrent DHT search engine",
+		Title:       "加载中 ... - Magnetico",
+		Description: "自托管 BitTorrent DHT 搜索引擎",
 		Language:    "en",
 		Head: []g.Node{
 			Meta(Charset("utf-8")),
@@ -36,8 +36,8 @@ func torrent() g.Node {
 						Href("magnet:?xt=urn:btih:{{ infoHash }}&dn={{ name }}"),
 						Img(
 							Src("/static/assets/magnet.gif"),
-							Alt("Magnet link"),
-							Title("Download this torrent using magnet"),
+							Alt("磁力链接"),
+							Title("使用磁力链接下载种子文件"),
 						),
 						Small(g.Text("{{ infoHash }}")),
 					),
@@ -65,7 +65,7 @@ func torrent() g.Node {
 						Td(g.Text("{{ nFiles }}")),
 					),
 				),
-				H3(g.Text("Files")),
+				H3(g.Text("文件")),
 				Div(ID("fileTree")),
 			),
 		},
@@ -85,7 +85,7 @@ func torrent() g.Node {
 					Input(
 						Type("search"),
 						Name("query"),
-						Placeholder("Search the BitTorrent DHT"),
+						Placeholder("搜索 BitTorrent DHT"),
 					),
 				),
 			),
@@ -127,7 +127,7 @@ func apiFileList(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Couldn't get files: "+err.Error(), http.StatusInternalServerError)
 		return
 	} else if files == nil {
-		http.Error(w, "Not found", http.StatusNotFound)
+		http.Error(w, "未找到", http.StatusNotFound)
 		return
 	}
 
