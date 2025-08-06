@@ -12,7 +12,7 @@ import (
 func homepage(ntorrents uint) g.Node {
 	return c.HTML5(c.HTML5Props{
 		Title:       "magnetico",
-		Description: "A self-hosted BitTorrent DHT search engine",
+		Description: "分布式 BitTorrent DHT 搜索引擎",
 		Language:    "en",
 		Head: []g.Node{
 			Meta(Charset("utf-8")),
@@ -25,7 +25,7 @@ func homepage(ntorrents uint) g.Node {
 			Main(
 				Div(
 					B(g.Text("magnetico")),
-					g.Text(" is a self-hosted BitTorrent DHT search engine."),
+					g.Text(" 分布式 BitTorrent DHT 搜索引擎"),
 				),
 				Form(
 					Action("/torrents"),
@@ -35,13 +35,13 @@ func homepage(ntorrents uint) g.Node {
 					Input(
 						Type("search"),
 						Name("query"),
-						Placeholder("Search the BitTorrent DHT"),
+						Placeholder("搜索 BitTorrent DHT"),
 						AutoFocus(),
 					),
 				),
 			),
 			Footer(
-				g.Text(fmt.Sprintf("%d torrents available (see the ", ntorrents)),
+				g.Text(fmt.Sprintf("%d 个可用种子 (详见 ", ntorrents)),
 				A(Href("/statistics"), g.Text("statistics")),
 				g.Text(")"),
 			),
